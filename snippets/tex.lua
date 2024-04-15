@@ -30,7 +30,7 @@ local function get_buffer_content()
   return content
 end
 
-local function new_label_factory(label_prefix)
+local function new_label(label_prefix)
   -- Get the content of the current buffer
   local content = get_buffer_content()
 
@@ -55,51 +55,93 @@ local function new_label_factory(label_prefix)
 end
 
 local function new_theorem_label()
-  return new_label_factory("thm")
+  return new_label("thm")
 end
 
 local function new_definition_label()
-  return new_label_factory("def")
+  return new_label("def")
 end
 
 local function new_proposition_label()
-  return new_label_factory("prop")
+  return new_label("prop")
 end
 
 local function new_lemma_label()
-  return new_label_factory("lem")
+  return new_label("lem")
 end
 
 local function new_corollary_label()
-  return new_label_factory("cor")
+  return new_label("cor")
 end
 
 local function new_example_label()
-  return new_label_factory("eg")
+  return new_label("eg")
 end
 
 local function new_exercise_label()
-  return new_label_factory("ex")
+  return new_label("ex")
 end
 
 local function new_equation_label()
-  return new_label_factory("eq")
+  return new_label("eq")
 end
 
 local function new_figure_label()
-  return new_label_factory("fig")
+  return new_label("fig")
 end
 
 return {
   s({
     trig = "lthm",
-    name = "Theorem environment",
-    desc = "",
+    name = "Theorem environment label",
+    desc = "Create a theorem label",
   }, f(new_theorem_label, {}, {})),
 
   s({
     trig = "ldef",
-    name = "Definition environment",
-    desc = "",
+    name = "Definition environment label",
+    desc = "Create a definition label",
   }, f(new_definition_label, {}, {})),
+
+  s({
+    trig = "lpro",
+    name = "Proposition environment label",
+    desc = "Create a proposition label",
+  }, f(new_proposition_label, {}, {})),
+
+  s({
+    trig = "llem",
+    name = "Lemma environment label",
+    desc = "Create a lemma label",
+  }, f(new_lemma_label, {}, {})),
+
+  s({
+    trig = "lcor",
+    name = "Corollary environment label",
+    desc = "Create a corollary label",
+  }, f(new_corollary_label, {}, {})),
+
+  s({
+    trig = "labeg",
+    name = "Example environment label",
+    desc = "Create an example label",
+  }, f(new_example_label, {}, {})),
+
+  s({
+    trig = "labex",
+    name = "Exercise environment label",
+    desc = "Create an exercise label",
+  }, f(new_exercise_label, {}, {})),
+
+  s({
+    trig = "labeq",
+    name = "Equation label",
+    desc = "Create an equation label",
+  }, f(new_equation_label, {}, {})),
+
+  s({
+    trig = "lfig",
+    name = "Figure label",
+    desc = "Create a figure label",
+  }, f(new_figure_label, {}, {})),
 }
